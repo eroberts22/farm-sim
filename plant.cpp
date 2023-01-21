@@ -12,9 +12,7 @@ void Plant::ageUp() {
 }
 
 bool Plant::harvestable() {
-    if (age >= dayHarvest) {
-        return true;
-    }
+    if (age >= dayHarvest) return true;
     return false;
 }
 

@@ -26,7 +26,7 @@ class Plant {
     protected:
         // name of plant
         string name;
-        // // day the plant is ready to be harvested
+        // day the plant is ready to be harvested
         int dayHarvest;
     public:
         // constructor

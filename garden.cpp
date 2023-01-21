@@ -23,16 +23,18 @@ Garden::Garden() {
 const int Garden::WATER_LIMIT = 10;
 
 void Garden::start() {
-    cout << "--Vegetable Farm Simulation--\n";
+    cout << "---------------------------------\n";
+    cout << "--- Vegetable Farm Simulation ---\n";
+    cout << "---------------------------------\n";
     cout << "You will have the choice to purchase five\n"
-        << " different types of plants:\n"
-        << "Carrots\n"
-        << "Turnips\n"
-        << "Cucumbers\n"
-        << "Tomatoes\n"
-        << "Lettuce\n\n";
+        << "different types of plants:\n"
+        << "1. Carrots\n"
+        << "2. Turnips\n"
+        << "3. Cucumbers\n"
+        << "4. Tomatoes\n"
+        << "5. Lettuce\n\n";
     cout << "Every vegetable has a set purchase price and\n"
-        << " a sale price that allows a profit when sold.\n";
+        << "set sale price that allows a profit when sold.\n\n";
     system("pause");
     cout << "\nStarting Stats: "
         << "\nStarting on day: " << daysElapsed
@@ -40,13 +42,13 @@ void Garden::start() {
         << "\nGarden water level: " << waterLevel
         << endl; 
     cout << "For each day progressed, the plants age and the\n"
-        << " garden's water level decreases.\n";
+        << "garden's water level decreases.\n\n";
     system("pause");
 }
 
 void Garden::water() {
     if (waterLevel >= WATER_LIMIT) {
-        cout << "Should not exceed water limit!" << endl;
+        cout << "Should not exceed water limit!\n\n";
         return;
     }
     cout << "Garden watered, ";
@@ -135,10 +137,10 @@ void Garden::harvest() {
 
     //  if nothing was harvested
     if (harvested == false) {
-        cout << "Plants were not ready to be harvested." << endl;
+        cout << "Plants were not ready to be harvested.\n\n";
     } else { // output number harvested
-        cout << "Harvested plants placed in storage." << endl;
-        cout << "Number harvested: " << count << endl;
+        cout << "Harvested plants placed in storage.\n";
+        cout << "Number harvested: " << count << "\n\n";
     }
 }
 
@@ -198,7 +200,9 @@ void Garden::addPlantsFunction (int choice, int amount) {
             }
             break;
     }
-    cout << "Successfully purchased " << amount << " " << vegLookup.find(choice)->second << endl;
+    string plural = amount > 1 ? "s" : "";
+    cout << "Successfully purchased " << amount << " " << vegLookup.find(choice)->second << plural << endl;
+    cout << "Remaining funds: $" << money << "\n\n";
 }
 
 bool Garden::purchasable(int choice, int amount) {
@@ -207,7 +211,7 @@ bool Garden::purchasable(int choice, int amount) {
     
     // if it costs too much, cannot purchase
     if (cost > money) {
-        cout << "Unable to purchase, insufficient funds!" << endl;
+        cout << "Unable to purchase, insufficient funds!\n";
         return false;
     }
     // subtracts the cost from money
@@ -259,11 +263,11 @@ void Garden::purchasePlant() {
 void Garden::sellItems() {
     // if there are no items to sell
     if (storage.empty()) {
-        cout << "No items to sell!" << endl;
+        cout << "No items to sell!\n\n";
         return;
     }
-    cout << "Selling items" << endl << endl;
-    int i = 0;
+    cout << "Selling items\n";
+    int counter = 0;
     // while the storage is not empty,
     // for the appropriate plant type, increase money by appropriote ammount
     // adds to counters of number of vegetables sold and amount_earned
@@ -279,6 +283,7 @@ void Garden::sellItems() {
         if (vegName == "Cucumber") cucumber_sold++;
         if (vegName == "Tomato") tomato_sold++;
         if (vegName == "Lettuce") lettuce_sold++;
+        counter++;
         
         // pushes front item from storage to sold items
         soldItems.push(storage.front());
@@ -286,7 +291,9 @@ void Garden::sellItems() {
         storage.pop_front(); 
     }
     int total = carrot_sold + turnip_sold + cucumber_sold + tomato_sold + lettuce_sold;
-    cout << "Items sold: " << total << endl;
+    cout << "Items sold: " << counter << endl;
+    cout << "Total items sold: " << total << endl;
+    cout << "Current funds: $" << money << "\n\n";
 }
 
 void Garden::lastSold() {
@@ -300,7 +307,7 @@ void Garden::lastSold() {
 void Garden::stats() {
     int total = carrot_sold + turnip_sold + cucumber_sold + tomato_sold + lettuce_sold;
     int profit = amount_earned - amount_spent;
-    cout << "End Stats: "
+    cout << "Current Stats: "
         << "\nCarrots Sold   : " << carrot_sold
         << "\nTurnips Sold   : " << turnip_sold
         << "\nCucumbers Sold : " << cucumber_sold

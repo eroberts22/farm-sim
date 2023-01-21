@@ -120,6 +120,10 @@ This project overall helped with understanding applications of how data structur
 
 ## Detailed Manual for Project Use
 
+    g++ *.cpp -o main
+
+    .\main.exe
+
 This project is a simulation of a vegetable garden where a user can purchase and grow five different types of vegetables. Each plant type has a different purchase price. The user can input any number greater than 0 and less than 50 for the number of plants they wish to purchase. Once purchased, the vegetables are planted in the garden in a specific row depending on the type. One must be sure to keep the garden watered, because if it gets too dry, there is a chance one of the plants will die. Whenever a day progresses, the water level decreases by 1 and the age of every plant in the garden increases by 1. A plant becomes harvestable once it reaches a specific set age (which is different for every plant). When a user chooses to harvest from the garden, they can pick one type of plant to harvest. If they are not harvestable, then nothing will happen. If they are harvestable, then they will be removed from the garden and put into storage. The user is able to see the garden and storage at any time. To make money to buy more plants, the user must sell their items. Selling plants removes every item from storage and gives the user money for every vegetable. Each different vegetable has a different sale price, but selling any vegetable will give the user a profit. The user is able to see the last item that has been sold. The user can see their stats at any time. The stats function shows the number of each type of vegetable sold, the days elapsed, money spent, money earned, and total profits. When a user is done with the simulation, they can choose to exit and their final stats will be displayed.
 
 ## Works Cited

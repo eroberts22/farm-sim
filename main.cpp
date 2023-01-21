@@ -26,17 +26,17 @@ int action_choice() {
     int choice = 0;
     do {
         cout << "\nChoose an Action: " 
-                << "\n1. Purchase Vegetables"
-                << "\n2. Water Garden"
-                << "\n3. Progress Day"
-                << "\n4. Harvest Vegetables"
-                << "\n5. Show Garden"
-                << "\n6. Show Storage"
-                << "\n7. Sell Items"
-                << "\n8. See Last Sold Item"
-                << "\n9. Show Stats"
-                << "\n10. Exit Simulation"
-                << endl << endl;
+            << "\n1. Purchase Vegetables"
+            << "\n2. Water Garden"
+            << "\n3. Progress Day"
+            << "\n4. Harvest Vegetables"
+            << "\n5. Show Garden"
+            << "\n6. Show Storage"
+            << "\n7. Sell Items"
+            << "\n8. See Last Sold Item"
+            << "\n9. Show Stats"
+            << "\n10. Exit Simulation"
+            << endl << endl;
         cin >> choice;
         if (choice >=1 && choice <= 10) {
             break;
